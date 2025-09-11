@@ -2,7 +2,6 @@ package com.devtabs.tasks.domain.entities;
 
 import jakarta.persistence.*;
 
-import java.beans.ConstructorProperties;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -32,12 +31,12 @@ public class TaskList {
     private LocalDateTime created;
 
     @Column(name = "updated", nullable = false)
-    private LocalDate updated;
+    private LocalDateTime updated;
 
-    public TaskList() {
-   }
+    public TaskList(){
 
-    public TaskList(UUID id, String title, String description, List<Task> tasks, LocalDateTime created, LocalDate updated) {
+    }
+    public TaskList(UUID id, String title, String description, List<Task> tasks, LocalDateTime created, LocalDateTime updated) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -46,11 +45,11 @@ public class TaskList {
         this.updated = updated;
     }
 
-    public LocalDate getUpdated() {
+    public LocalDateTime getUpdated() {
         return updated;
     }
 
-    public void setUpdated(LocalDate updated) {
+    public void setUpdated(LocalDateTime updated) {
         this.updated = updated;
     }
 
