@@ -5,6 +5,7 @@ import com.devtabs.tasks.repositories.TaskListRepositories;
 import com.devtabs.tasks.repositories.TaskRepositories;
 import com.devtabs.tasks.services.TaskListService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -49,7 +50,7 @@ public class TaskListServiceImpl implements TaskListService {
     public Optional<TaskList> getTaskList(UUID id) {
         return taskListRepositories.findById(id);
     }
-
+    @Transactional
     @Override
     public TaskList updateTaskList(UUID taskListId, TaskList taskList) {
         if (null == taskList.getId()){
